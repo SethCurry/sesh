@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/SethCurry/sesh"
+	"github.com/SethCurry/sesh/stdlib"
 	"github.com/rs/zerolog"
 )
 
@@ -14,7 +15,7 @@ func main() {
 	shell := sesh.NewShell("sesh", ctx)
 
 	logger := zerolog.New(os.Stderr).Level(zerolog.DebugLevel)
-	logging := sesh.NewLogging(&logger)
+	logging := stdlib.NewLogging(&logger)
 	shell.RegisterBasicModule(logging)
 
 	shell.REPL()
